@@ -1,4 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body { 
     background: #000; 
     font-family: 'Segoe UI', sans-serif; 
@@ -11,42 +12,45 @@ body {
 }
 
 .background-glow { position: fixed; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(255,215,0,.15), transparent 25%); pointer-events: none; }
-.spotlight { position: absolute; width: 250px; height: 120vh; background: linear-gradient(to bottom, rgba(255,255,255,.15), transparent); filter: blur(20px); pointer-events: none; }
+.spotlight { position: absolute; width: 25vmin; height: 120vh; background: linear-gradient(to bottom, rgba(255,255,255,.15), transparent); filter: blur(20px); pointer-events: none; }
 .spotlight-left { animation: leftMove 6s infinite alternate; }
 .spotlight-right { right: 0; animation: rightMove 6s infinite alternate; }
 
-@keyframes leftMove { from { transform: translateX(-300px) rotate(25deg); } to { transform: translateX(500px) rotate(-25deg); } }
-@keyframes rightMove { from { transform: translateX(300px) rotate(25deg); } to { transform: translateX(-500px) rotate(-25deg); } }
+@keyframes leftMove { from { transform: translateX(-30vmin) rotate(25deg); } to { transform: translateX(50vmin) rotate(-25deg); } }
+@keyframes rightMove { from { transform: translateX(30vmin) rotate(25deg); } to { transform: translateX(-50vmin) rotate(25deg); } }
 
 #trophy-container { perspective: 1200px; display: flex; justify-content: center; width: 100%; }
+
 .trophy-img {
-    max-width: 300px; 
-    width: 80%; 
+    width: 80vmin; 
+    max-width: 300px;
     height: auto;
     filter: drop-shadow(0 0 20px gold);
     animation: rotateTrophy 12s linear infinite;
-    margin: 50px auto;
+    margin: 5vmin auto;
 }
 
 @keyframes rotateTrophy { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
-#start-screen { position: absolute; z-index: 50; padding: 20px; text-align: center; }
+#start-screen { position: absolute; z-index: 50; padding: 5vmin; text-align: center; }
 #start-btn { 
-    padding: 15px 40px; 
+    padding: 3vmin 8vmin; 
     border-radius: 50px; 
     font-weight: bold; 
     cursor: pointer; 
     background: linear-gradient(45deg, #ffd700, #fff); 
     border: none; 
     box-shadow: 0 0 20px gold; 
-    font-size: 1rem;
+    font-size: 4vmin;
 }
 
-#main-scene { display: none; text-align: center; padding: 20px; }
-.title { color: gold; text-shadow: 0 0 10px gold; font-size: clamp(1.5rem, 5vw, 3rem); }
-#message { max-width: 600px; width: 90%; margin: 20px auto; font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.6; }
+#main-scene { display: none; text-align: center; padding: 5vmin; }
+.title { color: gold; text-shadow: 0 0 10px gold; font-size: 8vmin; }
+#message { width: 90vw; max-width: 600px; margin: 2vmin auto; font-size: 4vmin; line-height: 1.6; }
 
-@media (max-width: 600px) {
-    .trophy-img { width: 60%; }
-    #message { padding: 10px; }
+@media (min-width: 768px) {
+    #start-btn { padding: 20px 50px; font-size: 1.2rem; }
+    .title { font-size: 3rem; }
+    #message { font-size: 1.2rem; }
+    .trophy-img { width: 300px; }
 }
