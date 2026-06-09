@@ -54,7 +54,16 @@ body {
 @keyframes rotateTrophy { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
 .title { color: gold; text-shadow: 0 0 10px gold; font-size: 2rem; margin-bottom: 15px; }
-#message { width: 90%; max-width: 600px; font-size: 1rem; line-height: 1.6; }
+
+#message { 
+    width: 90%; 
+    max-width: 400px; 
+    font-size: 1rem; 
+    line-height: 1.6; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    margin: 0 auto;
+}
 
 @media (min-width: 768px) {
     .title { font-size: 3rem; }
