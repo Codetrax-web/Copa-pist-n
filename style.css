@@ -5,52 +5,44 @@ body {
     font-family: 'Segoe UI', sans-serif; 
     min-height: 100vh; 
     display: flex; 
+    flex-direction: column; /* Alineación vertical para el contenido */
     justify-content: center; 
     align-items: center; 
-    overflow: hidden; 
     color: white; 
+    overflow-x: hidden; /* Solo ocultamos el desborde horizontal */
 }
 
-.background-glow { position: fixed; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(255,215,0,.15), transparent 25%); pointer-events: none; }
-.spotlight { position: absolute; width: 25vmin; height: 120vh; background: linear-gradient(to bottom, rgba(255,255,255,.15), transparent); filter: blur(20px); pointer-events: none; }
-.spotlight-left { animation: leftMove 6s infinite alternate; }
-.spotlight-right { right: 0; animation: rightMove 6s infinite alternate; }
-
-@keyframes leftMove { from { transform: translateX(-30vmin) rotate(25deg); } to { transform: translateX(50vmin) rotate(-25deg); } }
-@keyframes rightMove { from { transform: translateX(30vmin) rotate(25deg); } to { transform: translateX(-50vmin) rotate(25deg); } }
-
-#trophy-container { perspective: 1200px; display: flex; justify-content: center; width: 100%; }
-
-.trophy-img {
-    width: 80vmin; 
-    max-width: 300px;
-    height: auto;
-    filter: drop-shadow(0 0 20px gold);
-    animation: rotateTrophy 12s linear infinite;
-    margin: 5vmin auto;
+/* Resto de tus estilos base se mantienen, ajusta solo el contenedor principal */
+#start-screen, #main-scene { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
 }
 
-@keyframes rotateTrophy { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+#main-scene { display: none; }
 
-#start-screen { position: absolute; z-index: 50; padding: 5vmin; text-align: center; }
 #start-btn { 
-    padding: 3vmin 8vmin; 
+    padding: 20px 40px; /* Unidades fijas más manejables aquí */
     border-radius: 50px; 
     font-weight: bold; 
     cursor: pointer; 
     background: linear-gradient(45deg, #ffd700, #fff); 
     border: none; 
     box-shadow: 0 0 20px gold; 
-    font-size: 4vmin;
+    font-size: 1.2rem;
 }
 
-#main-scene { display: none; text-align: center; padding: 5vmin; }
-.title { color: gold; text-shadow: 0 0 10px gold; font-size: 8vmin; }
-#message { width: 90vw; max-width: 600px; margin: 2vmin auto; font-size: 4vmin; line-height: 1.6; }
+.trophy-img {
+    width: 70vw; /* Ajuste más dinámico */
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 20px gold);
+    animation: rotateTrophy 12s linear infinite;
+}
 
 @media (min-width: 768px) {
-    #start-btn { padding: 20px 50px; font-size: 1.2rem; }
     .title { font-size: 3rem; }
     #message { font-size: 1.2rem; }
-    .trophy-img { width: 300px; }
 }
